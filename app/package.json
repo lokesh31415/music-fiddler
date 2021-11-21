@@ -8,6 +8,7 @@
     "name": "Lokesh S"
   },
   "dependencies": {
+    "chromedriver": "^96.0.0",
     "selenium-webdriver": "^4.0.0"
   }
 }

@@ -8,6 +8,17 @@
     "name": "Lokesh S",
     "email": "lokeshlogan40@gmail.com"
   },
+  "browser": {
+    "fs": false,
+    "path": false,
+    "os": false,
+    "net": false,
+    "tls": false,
+    "utf-8-validate": false,
+    "bufferutil": false,
+    "child_process": false,
+    "http": false
+  },
   "keywords": [
     "music",
     "fiddler",
@@ -44,6 +55,7 @@
     "@angular/platform-browser": "~13.0.2",
     "@angular/platform-browser-dynamic": "~13.0.2",
     "@angular/router": "~13.0.2",
+    "chromedriver": "^96.0.0",
     "rxjs": "~6.6.0",
     "selenium-webdriver": "^4.0.0",
     "tslib": "^2.2.0",
@@ -61,6 +73,7 @@
     "@angular/compiler-cli": "~13.0.2",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "@types/selenium-webdriver": "^4.0.16",
     "@typescript-eslint/eslint-plugin": "^5.4.0",
     "@typescript-eslint/parser": "^5.4.0",
     "conventional-changelog-cli": "^2.1.1",
