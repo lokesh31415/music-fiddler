@@ -1,12 +1,38 @@
 {
   "name": "music-fiddler",
   "version": "0.0.0",
+  "main": "app/main.js",
+  "description": "Music Fiddler (Finder + Downloader)",
+  "homepage": "https://github.com/lokicancode/music-fiddler",
+  "author": {
+    "name": "Lokesh S",
+    "email": "lokeshlogan40@gmail.com"
+  },
+  "keywords": [
+    "music",
+    "fiddler",
+    "music fiddler",
+    "finder",
+    "music finder",
+    "downloader",
+    "music downloader"
+  ],
   "scripts": {
+    "postinstall": "electron-builder install-app-deps",
     "ng": "ng",
-    "start": "ng serve",
-    "build": "ng build",
-    "watch": "ng build --watch --configuration development",
-    "test": "ng test"
+    "start": "npm-run-all -p electron:serve ng:serve",
+    "build": "npm run electron:serve-tsc && ng build --base-href ./",
+    "build:dev": "npm run build -- -c dev",
+    "build:prod": "npm run build -- -c production",
+    "ng:serve": "ng serve -c web -o",
+    "electron:serve-tsc": "tsc -p tsconfig.serve.json",
+    "electron:serve": "wait-on tcp:4200 && npm run electron:serve-tsc && npx electron . --serve",
+    "electron:local": "npm run build:prod && npx electron .",
+    "electron:build": "npm run build:prod && electron-builder build --publish=never",
+    "test": "ng test --watch=false",
+    "test:watch": "ng test",
+    "version": "conventional-changelog -i CHANGELOG.md -s -r 0 && git add CHANGELOG.md",
+    "lint": "ng lint"
   },
   "private": true,
   "dependencies": {
@@ -19,21 +45,43 @@
     "@angular/platform-browser-dynamic": "~13.0.2",
     "@angular/router": "~13.0.2",
     "rxjs": "~6.6.0",
+    "selenium-webdriver": "^4.0.0",
     "tslib": "^2.2.0",
     "zone.js": "~0.11.4"
   },
   "devDependencies": {
+    "@angular-builders/custom-webpack": "^13.0.0",
     "@angular-devkit/build-angular": "~13.0.3",
+    "@angular-eslint/builder": "^13.0.1",
+    "@angular-eslint/eslint-plugin": "^13.0.1",
+    "@angular-eslint/eslint-plugin-template": "^13.0.1",
+    "@angular-eslint/schematics": "^13.0.1",
+    "@angular-eslint/template-parser": "^13.0.1",
     "@angular/cli": "~13.0.3",
     "@angular/compiler-cli": "~13.0.2",
     "@types/jasmine": "~3.6.0",
     "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "^5.4.0",
+    "@typescript-eslint/parser": "^5.4.0",
+    "conventional-changelog-cli": "^2.1.1",
+    "electron": "^16.0.1",
+    "electron-builder": "^22.14.5",
+    "electron-reload": "^2.0.0-alpha.1",
+    "eslint": "^8.2.0",
+    "eslint-plugin-import": "^2.25.3",
+    "eslint-plugin-jsdoc": "^37.0.3",
+    "eslint-plugin-prefer-arrow": "^1.2.3",
     "jasmine-core": "~3.7.0",
     "karma": "~6.3.0",
     "karma-chrome-launcher": "~3.1.0",
     "karma-coverage": "~2.0.3",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
-    "typescript": "~4.4.4"
+    "node-polyfill-webpack-plugin": "^1.1.4",
+    "npm-run-all": "^4.1.5",
+    "ts-node": "^10.4.0",
+    "typescript": "~4.4.4",
+    "wait-on": "^6.0.0",
+    "webdriver-manager": "^12.1.8"
   }
 }

@@ -1,0 +1,13 @@
+{
+  "name": "music-fiddler",
+  "version": "0.0.0",
+  "main": "main.js",
+  "private": true,
+  "description": "Music Fiddler (Finder + Downloader)",
+  "author": {
+    "name": "Lokesh S"
+  },
+  "dependencies": {
+    "selenium-webdriver": "^4.0.0"
+  }
+}

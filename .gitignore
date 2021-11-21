@@ -3,6 +3,7 @@
 
 # compiled output
 /dist
+/release
 /tmp
 /out-tsc
 # Only exists if Bazel was run
@@ -13,6 +14,9 @@
 
 # profiling files
 chrome-profiler-events*.json
+
+# ignore map files
+*.js.map
 
 # IDEs and editors
 /.idea
