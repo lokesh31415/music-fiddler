@@ -1,0 +1,17 @@
+html {
+  font-size: 0.625rem;
+}
+
+*,
+*::after,
+*::before {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-image: url("../assets/images/landing-page-medium.jpg");
+  //   Photo by Alexander Tiupa from Pexels
+  background-size: cover;
+}
