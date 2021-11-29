@@ -10,6 +10,7 @@ export class ProvidersComponent implements OnInit {
   constructor() { }
 
   ngOnInit(): void {
+    
   }
 
 }
